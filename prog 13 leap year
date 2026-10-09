@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+int main()
+{
+  int year,i,oddDays=0;
+  printf("enter the year:");
+  scanf("%d",&year);
+  if((year % 400==0)||(year %4==0&&year %100!=0))
+  printf("leap year \n");
+  else
+  printf("not a leap year\n");
+  for(i=1;i<year;i++)
+  {
+      if((i%400==0)||(i%4==0 && i%100 !=0))
+    oddDays=oddDays+2;
+    else
+    oddDays=oddDays+1;
+    }
+    oddDays = oddDays %7;
+    if(oddDays==0)
+    printf("monday \n");
+    else if(oddDays==1)
+    printf("tuesday\n");
+    else if (oddDays==2)
+    printf("wednesday\n");
+    else if(oddDays==3)
+    printf("thrusday\n");
+    else if(oddDays==4)
+    printf("friday\n");
+    else if(oddDays==5)
+    printf("saturday\n");
+    else
+    printf("sunday\n");
+    return 0;
+}
