@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main()
+{
+    int i;
+    float l[3],b[3],p[3];
+    for(i=0;i<3;i++)
+    {
+        printf("enter length and breadthof rectangle %d:",i+1);
+        scanf("%f %f",&l[i],&b[i]);
+        p[i]=2*(l[i]+b[i]);
+    }
+    float max_p=p[0];//assume the perimeter of first rectangle
+    int max_idx=0;
+    for(i=1;i<3;i++)
+    {
+     max_idx=(p[i]>max_p)?i:max_idx;
+     max_p=(p[i]>max_p)?p[i]:max_p;
+    }
+    printf("rectangle %d has highest perimeter = %.2f\n",max_idx+1,max_p);;
+    return 0;
+}
