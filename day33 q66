@@ -1,13 +1,6 @@
 #include <stdio.h>
 
-/**
- * Searches for a target element in a sorted array using Binary Search.
- * 
- * @param arr    The sorted input array.
- * @param size   The number of elements in the array.
- * @param target The value to search for.
- * @return       The index of the target if found, otherwise -1.
- */
+
 int binary_search(const int arr[], int size, int target) {
     int left = 0;
     int right = size - 1;
