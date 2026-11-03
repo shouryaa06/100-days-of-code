@@ -1,0 +1,43 @@
+#include <stdio.h>
+
+void find_longest_word(const char sentence[], char longest[]) {
+    int i = 0;
+    int max_len = 0;
+    int max_start = 0;
+    
+    while (sentence[i] != '\0') {
+        while (sentence[i] == ' ' || sentence[i] == '\t' || sentence[i] == '\n') {
+            i++;
+        }
+        if (sentence[i] == '\0') {
+            break;
+        }
+        
+        int start = i;
+        int len = 0;
+        while (sentence[i] != '\0' && sentence[i] != ' ' && sentence[i] != '\t' && sentence[i] != '\n') {
+            len++;
+            i++;
+        }
+        
+        if (len > max_len) {
+            max_len = len;
+            max_start = start;
+        }
+    }
+    
+    for (int j = 0; j < max_len; j++) {
+        longest[j] = sentence[max_start + j];
+    }
+    longest[max_len] = '\0';
+}
+
+int main() {
+    char sentence[] = "Find the longest word in a sentence.";
+    char longest[100];
+    
+    find_longest_word(sentence, longest);
+    printf("Longest word: %s\n", longest);
+    
+    return 0;
+}
