@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+
+int are_anagrams(const char str1[], const char str2[]) {
+    int frequency[256] = {0}; // Frequency counter for ASCII characters
+    int i = 0;
+
+    // Increment counts for str1 and decrement counts for str2
+    while (str1[i] != '\0' && str2[i] != '\0') {
+        frequency[(unsigned char)str1[i]]++;
+        frequency[(unsigned char)str2[i]]--;
+        i++;
+    }
+
+    // If one string is longer than the other, they cannot be anagrams
+    if (str1[i] != '\0' || str2[i] != '\0') {
+        return 0;
+    }
+
+    // Check if all counts returned back to zero
+    for (int j = 0; j < 256; j++) {
+        if (frequency[j] != 0) {
+            return 0; // Discrepancy found, not anagrams
+        }
+    }
+
+    return 1; // All counts are zero; strings are anagrams!
+}
+
