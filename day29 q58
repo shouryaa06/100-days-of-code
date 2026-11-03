@@ -1,0 +1,41 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Enter the number of elements: ";
+    if (!(cin >> n) || n <= 0) {
+        cout << "Please enter a valid positive integer." << endl;
+        return 1;
+    }
+
+    int arr[n];
+    cout << "Enter " << n << " elements:" << endl;
+    for (int i = 0; i < n; ++i) {
+        if (!(cin >> arr[i])) {
+            cout << "Invalid input." << endl;
+            return 1;
+        }
+    }
+
+    // Step 1: Initialize min and max with the first element
+    int minVal = arr[0];
+    int maxVal = arr[0];
+
+    // Step 2: Loop through the array to compare elements
+    for (int i = 1; i < n; ++i) {
+        if (arr[i] > maxVal) {
+            maxVal = arr[i];
+        }
+        if (arr[i] < minVal) {
+            minVal = arr[i];
+        }
+    }
+
+    // Step 3: Print the results
+    cout << "\nMaximum element: " << maxVal << endl;
+    cout << "Minimum element: " << minVal << endl;
+
+    return 0;
+}
