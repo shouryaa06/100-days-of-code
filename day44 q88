@@ -1,0 +1,14 @@
+#include <stdio.h>
+
+
+void replace_spaces_with_hyphens(char str[]) {
+    int i = 0;
+    
+    // Loop through the string until the null-terminator '\0' is reached
+    while (str[i] != '\0') {
+        if (str[i] == ' ') {
+            str[i] = '-'; // Replace space with a hyphen
+        }
+        i++;
+    }
+}
