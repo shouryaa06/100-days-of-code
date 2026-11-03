@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+
+int count_character_frequency(const char str[], char target) {
+    int count = 0;
+    int i = 0;
+    
+    while (str[i] != '\0') {
+        if (str[i] == target) {
+            count++;
+        }
+        i++;
+    }
+    
+    return count;
+}
