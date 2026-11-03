@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+
+char find_first_repeating_lowercase(const char str[]) {
+    // Boolean tracker array for 'a' through 'z' (26 alphabets)
+    int seen[26] = {0}; 
+    int i = 0;
+    
+    while (str[i] != '\0') {
+        char ch = str[i];
+        
+        // Only process lowercase alphabets
+        if (ch >= 'a' && ch <= 'z') {
+            int index = ch - 'a';
+            
+            // If we have already marked this character as seen
+            if (seen[index] == 1) {
+                return ch; // Found the first repeating character!
+            }
+            
+            // Mark the character as seen
+            seen[index] = 1;
+        }
+        i++;
+    }
+    
+    return '\0'; // No repeating lowercase character was found
+}
