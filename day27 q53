@@ -1,0 +1,26 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+    int totalRows = 9;
+    int peakRow = 5;
+
+    // Outer loop for rows
+    for (int i = 1; i <= totalRows; ++i) {
+        
+        // Mathematically calculate the number of stars to print in the current row
+        int starsCount = 9 - 2 * abs(peakRow - i);
+        
+        // Inner loop to print the stars side-by-side
+        for (int j = 1; j <= starsCount; ++j) {
+            cout << "*";
+        }
+        
+        // Move to the next line after completing the row
+        cout << endl;
+    }
+
+    return 0;
+}
