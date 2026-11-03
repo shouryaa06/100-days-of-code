@@ -1,0 +1,46 @@
+#include <stdio.h>
+
+
+void reverse_sub_array(int arr[], int start, int end) {
+    while (start < end) {
+        int temp = arr[start];
+        arr[start] = arr[end];
+        arr[end] = temp;
+        start++;
+        end--;
+    }
+}
+
+
+void rotate_array_right(int arr[], int size, int k) {
+    if (size <= 1) {
+        return; // No rotation needed for empty or single-element arrays
+    }
+    
+    // Normalize k in case it is larger than the array size
+    k = k % size;
+    if (k == 0) {
+        return; // No rotation needed
+    }
+    
+    // Step 1: Reverse the entire array
+    reverse_sub_array(arr, 0, size - 1);
+    
+    // Step 2: Reverse the first k elements
+    reverse_sub_array(arr, 0, k - 1);
+    
+    // Step 3: Reverse the remaining size-k elements
+    reverse_sub_array(arr, k, size - 1);
+}
+
+// Helper function to print an array
+void print_array(const int arr[], int size) {
+    printf("[");
+    for (int i = 0; i < size; i++) {
+        printf("%d", arr[i]);
+        if (i < size - 1) {
+            printf(", ");
+        }
+    }
+    printf("]\n");
+}
