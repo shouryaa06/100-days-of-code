@@ -1,0 +1,26 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int totalRows = 5;
+
+    // Outer loop to handle the rows
+    for (int i = 1; i <= totalRows; ++i) {
+        
+        // Inner loop 1: Print (i - 1) leading spaces
+        for (int space = 1; space < i; ++space) {
+            cout << " ";
+        }
+        
+        // Inner loop 2: Print (totalRows - i + 1) stars
+        for (int star = 1; star <= (totalRows - i + 1); ++star) {
+            cout << "*";
+        }
+        
+        // Move to the next line after completing the row
+        cout << endl;
+    }
+
+    return 0;
+}
