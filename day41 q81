@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+
+int count_characters(const char str[]) 
+{
+    int count = 0;
+    
+    while char (str[count] != '\0') 
+    {
+        count++;
+    }
+    
+    return count;
+}
+
