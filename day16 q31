@@ -1,0 +1,43 @@
+#include <stdio.h>
+
+int main() {
+    int decimalNum;
+    int binaryArray[32]; // Array to store binary digits (enough for a 32-bit integer)
+    int index = 0;
+
+    // Prompt user for input
+    printf("Enter a non-negative decimal integer: ");
+    if (scanf("%d", &decimalNum) != 1) {
+        printf("Invalid input.\n");
+        return 1;
+    }
+
+    // Handle edge case where input is exactly 0
+    if (decimalNum == 0) {
+        printf("Binary equivalent: 0\n");
+        return 0;
+    }
+
+    // Handle negative numbers (or warn user)
+    if (decimalNum < 0) {
+        printf("Error: This basic program only supports non-negative integers.\n");
+        return 1;
+    }
+
+    // Algorithm to convert decimal to binary
+    int temp = decimalNum;
+    while (temp > 0) {
+        binaryArray[index] = temp % 2; // Store the remainder (0 or 1)
+        temp = temp / 2;               // Divide the number by 2
+        index++;                       // Move to the next array position
+    }
+
+    // Print the binary representation in reverse order
+    printf("Binary equivalent of %d is: ", decimalNum);
+    for (int i = index - 1; i >= 0; i--) {
+        printf("%d", binaryArray[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
