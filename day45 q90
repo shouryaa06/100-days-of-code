@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <ctype.h>
+
+
+void toggle_case(char str[]) {
+    int i = 0;
+    
+    while (str[i] != '\0') {
+        unsigned char ch = (unsigned char)str[i];
+        
+        if (islower(ch)) {
+            str[i] = toupper(ch);
+        } else if (isupper(ch)) {
+            str[i] = tolower(ch);
+        }
+        // Non-alphabetic characters are automatically ignored and left unchanged
+        i++;
+    }
+}
+
