@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <ctype.h>
+
+
+void count_vowels_consonants(const char str[], int *vowel_count, int *consonant_count) {
+    *vowel_count = 0;
+    *consonant_count = 0;
+    int i = 0;
+    
+    while (str[i] != '\0') {
+        char ch = str[i];
+        
+        // Only process alphabetic characters (ignore spaces, punctuation, digits)
+        if (isalpha((unsigned char)ch)) {
+            // Convert to lowercase to minimize comparison checks
+            char lower_ch = tolower((unsigned char)ch);
+            
+            // Check if it is a vowel
+            if (lower_ch == 'a' || lower_ch == 'e' || lower_ch == 'i' || lower_ch == 'o' || lower_ch == 'u') {
+                (*vowel_count)++;
+            } else {
+                // If it is alphabetic and not a vowel, it is a consonant
+                (*consonant_count)++;
+            }
+        }
+        i++;
+    }
+}
