@@ -1,0 +1,45 @@
+int main() {
+    printf(": Deletion Test Suite --- \n\n");
+
+    
+    int arr1[] = {10, 20, 30, 40, 50};
+    int size1 = 5;
+    printf("Test Case 1 (Delete from middle):\n");
+    printf("  Original: "); print_array(arr1, size1);
+    size1 = delete_element(arr1, size1, 30); // Deleting 30
+    printf("  Expected: [10, 20, 40, 50]\n");
+    printf("  Actual:   "); print_array(arr1, size1);
+    printf("\n");
+
+    
+    int arr2[] = {10, 20, 30, 40, 50};
+    int size2 = 5;
+    printf("Test Case 2 (Delete the first element):\n");
+    printf("  Original: "); print_array(arr2, size2);
+    size2 = delete_element(arr2, size2, 10); // Deleting 10
+    printf("  Expected: [20, 30, 40, 50]\n");
+    printf("  Actual:   "); print_array(arr2, size2);
+    printf("\n");
+
+    
+    int arr3[] = {10, 20, 30, 40, 50};
+    int size3 = 5;
+    printf("Test Case 3 (Delete the last element):\n");
+    printf("  Original: "); print_array(arr3, size3);
+    size3 = delete_element(arr3, size3, 50); // Deleting 50
+    printf("  Expected: [10, 20, 30, 40]\n");
+    printf("  Actual:   "); print_array(arr3, size3);
+    printf("\n");
+
+    
+    int arr4[] = {10, 20, 30, 40, 50};
+    int size4 = 5;
+    printf("Test Case 4 (Element not present):\n");
+    printf("  Original: "); print_array(arr4, size4);
+    size4 = delete_element(arr4, size4, 99); // Deleting 99 (Not present)
+    printf("  Expected: [10, 20, 30, 40, 50]\n");
+    printf("  Actual:   "); print_array(arr4, size4);
+    printf("\n");
+
+    return 0;
+}
