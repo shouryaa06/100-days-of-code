@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+void convert_date_format(const char source[], char dest[]) {
+    if (strlen(source) != 10) {
+        strcpy(dest, "Invalid Date");
+        return;
+    }
+
+    
+    if (source[2] != '/' || source[5] != '/' || source[3] != '0' || source[4] != '4') {
+        strcpy(dest, "Invalid Format");
+        return;
+    }
+
+    char day[3];
+    char year[5];
+
+    // Extract day (indices 0 and 1)
+    day[0] = source[0];
+    day[1] = source[1];
+    day[2] = '\0';
+
+    // Extract year (indices 6, 7, 8, 9)
+    year[0] = source[6];
+    year[1] = source[7];
+    year[2] = source[8];
+    year[3] = source[9];
+    year[4] = '\0';
+
+    
+    
+    sprintf(dest, "%s-Apr-%s", day, year);
+}
+return 0;
+}
