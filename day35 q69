@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <limits.h>
+
+
+int find_second_largest(const int arr[], int size) {
+    if (size < 2) {
+        return INT_MIN; // Cannot have a second largest element with fewer than 2 elements
+    }
+
+    int largest = INT_MIN;
+    int second_largest = INT_MIN;
+
+    for (int i = 0; i < size; i++) {
+        // Case 1: Current element is greater than the largest found so far
+        if (arr[i] > largest) {
+            second_largest = largest;
+            largest = arr[i];
+        }
+        // Case 2: Current element is in-between largest and second_largest
+        else if (arr[i] > second_largest && arr[i] != largest) {
+            second_largest = arr[i];
+        }
+    }
+
+    return second_largest;
+}
+
+// Helper function to print an array
+void print_array(const int arr[], int size) {
+    printf("[");
+    for (int i = 0; i < size; i++) {
+        printf("%d", arr[i]);
+        if (i < size - 1) {
+            printf(", ");
+        }
+    }
+    printf("]\n");
+}
