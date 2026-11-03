@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h> // Required for abs()
+
+int main() {
+    int num, originalNum;
+    int sum = 0;
+
+    // Prompt user for input
+    printf("Enter an integer: ");
+    if (scanf("%d", &num) != 1) {
+        printf("Invalid input.\n");
+        return 1;
+    }
+
+    originalNum = num; // Store the original number for the final print
+
+    // Convert to absolute value so negative numbers are processed correctly
+    int temp = abs(num);
+
+    // Loop to extract and sum digits
+    while (temp != 0) {
+        int digit = temp % 10; // Extract the last digit
+        sum += digit;          // Add the digit to our running sum
+        temp /= 10;            // Remove the last digit
+    }
+
+    printf("The sum of digits of %d is: %d\n", originalNum, sum);
+
+    return 0;
+}
+
