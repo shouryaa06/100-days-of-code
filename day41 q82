@@ -1,0 +1,12 @@
+#include <stdio.h>
+
+
+void print_characters_newline(const char str[]) {
+    int i = 0;
+    
+    // Loop until we reach the null character '\0'
+    while (str[i] != '\0') {
+        printf("%c\n", str[i]);
+        i++;
+    }
+}
