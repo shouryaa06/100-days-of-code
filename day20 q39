@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <stdlib.h> // Required for abs()
+
+int main() {
+    int num, originalNum;
+    long long product = 1;
+    int has_odd = 0;
+
+    // Prompt user for input
+    printf("Enter an integer: ");
+    if (scanf("%d", &num) != 1) {
+        printf("Invalid input.\n");
+        return 1;
+    }
+
+    originalNum = num;
+    
+    // Convert to positive absolute value to process digits correctly
+    int temp = abs(num);
+
+    // Loop to extract digits
+    while (temp != 0) {
+        int digit = temp % 10;
+        
+        // Check if the extracted digit is odd
+        if (digit % 2 != 0) {
+            product *= digit;
+            has_odd = 1;
+        }
+        temp /= 10;
+    }
+
+    // Print results
+    if (has_odd) {
+        printf("The product of odd digits of %d is: %lld\n", originalNum, product);
+    } else {
+        printf("There are no odd digits in %d (Product = 0).\n", originalNum);
+    }
+
+    return 0;
+}
