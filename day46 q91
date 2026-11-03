@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <ctype.h>
+
+
+int is_vowel(char ch) {
+    char lower_ch = tolower((unsigned char)ch);
+    return (lower_ch == 'a' || lower_ch == 'e' || lower_ch == 'i' || lower_ch == 'o' || lower_ch == 'u');
+}
+
+
+void remove_vowels(char str[]) {
+    int i = 0;
+    int write_index = 0;
+    
+    // Scan every character of the string
+    while (str[i] != '\0') {
+        // If it's not a vowel, write it to the write_index slot
+        if (!is_vowel(str[i])) {
+            str[write_index] = str[i];
+            write_index++;
+        }
+        i++;
+    }
+    
+    // Null-terminate the newly shortened string
+    str[write_index] = '\0';
+}
