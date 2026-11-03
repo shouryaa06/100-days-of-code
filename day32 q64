@@ -1,0 +1,52 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/**
+ * Finds the digit that occurs the most times in an integer.
+ * 
+ * @param n The input integer (can be positive, negative, or zero).
+ * @return  The digit (0-9) that appears most frequently.
+ */
+int most_frequent_digit(long long n) {
+    int counts[10] = {0}; // Index 0-9 to keep track of frequency of each digit
+    
+    // Handle negative numbers by converting to positive
+    if (n < 0) {
+        n = -n;
+    }
+    
+    // Edge case: if the number is exactly 0
+    if (n == 0) {
+        return 0;
+    }
+    
+    // Count occurrences of each digit
+    while (n > 0) {
+        int digit = n % 10;
+        counts[digit]++;
+        n /= 10;
+    }
+    
+    // Find the digit with the maximum count
+    int max_digit = 0;
+    int max_count = -1;
+    
+    for (int i = 0; i < 10; i++) {
+        if (counts[i] > max_count) {
+            max_count = counts[i];
+            max_digit = i;
+        }
+    }
+    
+    return max_digit;
+}
+
+int main() {
+    long long number = 12233344445LL;
+    
+    printf("Input Number: %lld\n", number);
+    int result = most_frequent_digit(number);
+    printf(" Most frequent digit: %d\n", result);
+    
+    return 0;
+}
