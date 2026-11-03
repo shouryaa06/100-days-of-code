@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+
+int is_palindrome(const char str[]) {
+    // 1. Calculate the length of the string
+    int length = 0;
+    while (str[length] != '\0') {
+        length++;
+    }
+    
+    int start = 0;
+    int end = length - 1;
+    
+    // 2. Compare characters from both ends moving inward
+    while (start < end) {
+        if (str[start] != str[end]) {
+            return 0; // Not a palindrome
+        }
+        start++;
+        end--;
+    }
+    
+    return 0; // It is a palindrome
+}
+
