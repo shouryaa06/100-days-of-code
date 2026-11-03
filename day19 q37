@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <stdlib.h> // Required for abs()
+
+int main() {
+    int num1, num2, a, b;
+
+    // Prompt user for input
+    printf("Enter two integers: ");
+    if (scanf("%d %d", &num1, &num2) != 2) {
+        printf("Invalid input. Please enter integers only.\n");
+        return 1;
+    }
+
+    // Work with absolute values to correctly handle negative inputs
+    a = abs(num1);
+    b = abs(num2);
+
+    // Handle edge case where one or both inputs are zero
+    if (a == 0 || b == 0) {
+        printf("The LCM of %d and %d is: 0\n", num1, num2);
+        return 0;
+    }
+
+    // Euclidean Algorithm to find GCD first
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    int gcd = a;
+
+    // Calculate LCM
+    // Order of operations: Division before multiplication prevents early integer overflow
+    long long lcm = ((long long)abs(num1) / gcd) * abs(num2);
+
+    printf("The LCM of %d and %d is: %lld\n", num1, num2, lcm);
+
+    return 0;
+}
