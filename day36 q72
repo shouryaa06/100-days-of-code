@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+#define MAX_ROWS 100
+#define MAX_COLS 100
+
+
+long long sum_of_matrix(int matrix[MAX_ROWS][MAX_COLS], int rows, int cols) {
+    long long total_sum = 0; // Using long long to prevent potential integer overflow
+    
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            total_sum += matrix[i][j];
+        }
+    }
+    
+    return total_sum;
+}
+
+// Helper function to print a matrix in a clean, aligned grid format
+void print_matrix(int matrix[MAX_ROWS][MAX_COLS], int rows, int cols) {
+    for (int i = 0; i < rows; i++) {
+        printf("│ ");
+        for (int j = 0; j < cols; j++) {
+            printf("%-6d ", matrix[i][j]);
+        }
+        printf("│\n");
+    }
+}
