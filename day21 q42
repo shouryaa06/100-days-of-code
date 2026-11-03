@@ -1,0 +1,43 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+    long long n;
+    cout << "Enter a positive integer: ";
+    if (!(cin >> n) || n <= 0) {
+        cout << "Please enter a valid positive integer." << endl;
+        return 1;
+    }
+
+    // 1 is not a perfect number because its only divisor is 1 (not a proper divisor)
+    if (n == 1) {
+        cout << n << " is NOT a perfect number." << endl;
+        return 0;
+    }
+
+    long long divisorSum = 1; // 1 is always a proper divisor for any n > 1
+    long long limit = sqrt(n);
+
+    // Optimized loop up to square root of n
+    for (long long i = 2; i <= limit; ++i) {
+        if (n % i == 0) {
+            divisorSum += i;
+            
+            // If divisors are different (e.g., for 36, 6*6 is handled once)
+            if (i != n / i) {
+                divisorSum += n / i;
+            }
+        }
+    }
+
+    // Check if the sum of proper divisors equals the original number
+    if (divisorSum == n) {
+        cout << n << " is a perfect number." << endl;
+    } else {
+        cout << n << " is NOT a perfect number." << endl;
+    }
+
+    return 0;
+}
