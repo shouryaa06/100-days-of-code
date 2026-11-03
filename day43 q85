@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+
+void reverse_string(char str[]) {
+    // 1. Find the length of the string
+    int length = 0;
+    while (str[length] != '\0') {
+        length++;
+    }
+    
+    // 2. Use two pointers to swap characters from both ends moving inward
+    int start = 0;
+    int end = length - 1;
+    
+    while (start < end) {
+        // Swap characters
+        char temp = str[start];
+        str[start] = str[end];
+        str[end] = temp;
+        
+        // Move pointers closer to the center
+        start++;
+        end--;
+    }
+}
+
