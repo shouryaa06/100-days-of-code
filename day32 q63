@@ -1,14 +1,6 @@
 #include <stdio.h>
 
-/**
- * Merges two source arrays into a pre-allocated destination array.
- * 
- * @param arr1   The first source array.
- * @param size1  The size of the first array.
- * @param arr2   The second source array.
- * @param size2  The size of the second array.
- * @param dest   The destination array (must have a capacity of at least size1 + size2).
- */
+
 void merge_arrays(const int arr1[], int size1, const int arr2[], int size2, int dest[]) {
     // Copy elements from the first array
     for (int i = 0; i < size1; i++) {
