@@ -1,0 +1,27 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+    int totalGroups = 5;
+
+    // Outer loop to handle each of the 5 groups
+    for (int i = 1; i <= totalGroups; ++i) {
+        
+        // Mathematically calculate the number of stars for group i: 1, 3, 5, 3, 1
+        int starsInGroup = 5 - 2 * abs(3 - i);
+        
+        // Inner loop to print the stars vertically
+        for (int j = 1; j <= starsInGroup; ++j) {
+            cout << "*" << endl;
+        }
+        
+        // Print a separating blank line between groups (but not after the last group)
+        if (i < totalGroups) {
+            cout << endl;
+        }
+    }
+
+    return 0;
+}
