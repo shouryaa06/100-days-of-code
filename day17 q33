@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    int num, originalNum, tempNum;
+    int digits = 0;
+    double sum = 0.0;
+
+    // Prompt user for input
+    printf("Enter an integer: ");
+    if (scanf("%d", &num) != 1) {
+        printf("Invalid input.\n");
+        return 1;
+    }
+
+    // Negative numbers cannot be Armstrong numbers in standard definitions
+    if (num < 0) {
+        printf("%d is NOT an Armstrong number.\n", num);
+        return 0;
+    }
+
+    originalNum = num;
+    tempNum = num;
+
+    // Step 1: Count the number of digits
+    while (tempNum != 0) {
+        digits++;
+        tempNum /= 10;
+    }
+
+    tempNum = num; // Reset tempNum for digit extraction
+
+    // Step 2: Extract each digit and raise it to the power of 'digits'
+    while (tempNum != 0) {
+        int remainder = tempNum % 10;
+        sum += pow(remainder, digits);
+        tempNum /= 10;
+    }
+
+    // Step 3: Compare the calculated sum with the original number
+    // We use a small epsilon tolerance when casting double to int to prevent rounding errors
+    if ((int)(sum + 0.5) == originalNum) {
+        printf("%d is an Armstrong number.\n", originalNum);
+    } else {
+        printf("%d is NOT an Armstrong number.\n", originalNum);
+    }
+
+    return 0;
+}
