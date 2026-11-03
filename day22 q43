@@ -1,0 +1,45 @@
+#include <iostream>
+
+using namespace std;
+
+// Function to calculate factorial of a digit
+long long getFactorial(int digit) {
+    long long fact = 1;
+    for (int i = 1; i <= digit; ++i) {
+        fact *= i;
+    }
+    return fact;
+}
+
+int main() {
+    long long originalNum;
+    cout << "Enter a positive integer: ";
+    if (!(cin >> originalNum) || originalNum < 0) {
+        cout << "Please enter a valid non-negative integer." << endl;
+        return 1;
+    }
+
+    long long temp = originalNum;
+    long long factorialSum = 0;
+
+    // Handle 0 explicitly (0! = 1, but 0 is not equal to 1, so it is not a strong number)
+    if (temp == 0) {
+        factorialSum = 1; 
+    } else {
+        // Extract digits and calculate the sum of factorials
+        while (temp > 0) {
+            int digit = temp % 10;
+            factorialSum += getFactorial(digit);
+            temp /= 10;
+        }
+    }
+
+    // Check if the sum matches the original number
+    if (factorialSum == originalNum) {
+        cout << originalNum << " is a strong number." << endl;
+    } else {
+        cout << originalNum << " is NOT a strong number." << endl;
+    }
+
+    return 0;
+}
