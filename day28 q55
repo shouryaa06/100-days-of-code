@@ -1,0 +1,46 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+// Function to check if a number is prime
+bool isPrime(int num) {
+    if (num <= 1) return false; // 1 and negative numbers are not prime
+    if (num == 2) return true;  // 2 is the only even prime
+    if (num % 2 == 0) return false; // Exclude all other even numbers
+
+    // Check odd factors up to the square root of the number
+    int limit = sqrt(num);
+    for (int i = 3; i <= limit; i += 2) {
+        if (num % i == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+int main() {
+    int n;
+    cout << "Enter the limit (n): ";
+    if (!(cin >> n)) {
+        cout << "Invalid input." << endl;
+        return 1;
+    }
+
+    cout << "Prime numbers from 1 to " << n << " are:" << endl;
+    
+    bool found = false;
+    for (int i = 1; i <= n; ++i) {
+        if (isPrime(i)) {
+            cout << i << " ";
+            found = true;
+        }
+    }
+
+    if (!found) {
+        cout << "No prime numbers found in this range.";
+    }
+    cout << endl;
+
+    return 0;
+}
