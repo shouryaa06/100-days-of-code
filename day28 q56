@@ -1,0 +1,35 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Enter the number of elements: ";
+    if (!(cin >> n) || n <= 0) {
+        cout << "Please enter a valid positive integer." << endl;
+        return 1;
+    }
+
+    // Declare a static array with a safe maximum limit, 
+    // or use a variable-length array/dynamic allocation.
+    int arr[n]; 
+
+    // Step 1: Read elements into the array
+    cout << "Enter " << n << " elements:" << endl;
+    for (int i = 0; i < n; ++i) {
+        cout << "Element [" << i << "]: ";
+        if (!(cin >> arr[i])) {
+            cout << "Invalid input. Exiting." << endl;
+            return 1;
+        }
+    }
+
+    // Step 2: Print elements of the array
+    cout << "\nThe elements of the array are:" << endl;
+    for (int i = 0; i < n; ++i) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
