@@ -38,9 +38,9 @@ int main() {
     int result = binary_search(arr, size, target);
     
     if (result != -1) {
-        printf("✅ Element found at index: %d\n", result);
+        printf("Element found at index: %d\n", result);
     } else {
-        printf("❌ Element not found in the array.\n");
+        printf(" Element not found in the array.\n");
     }
     
     return 0;
