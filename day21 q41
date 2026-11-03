@@ -1,0 +1,56 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+    long long n;
+    cout << "Enter an integer: ";
+    if (!(cin >> n)) {
+        cout << "Invalid input." << endl;
+        return 1;
+    }
+
+    // Handle negative numbers
+    bool isNegative = false;
+    if (n < 0) {
+        isNegative = true;
+        n = -n;
+    }
+
+    // Single-digit numbers remain unchanged
+    if (n < 10) {
+        if (isNegative) n = -n;
+        cout << "Swapped number: " << n << endl;
+        return 0;
+    }
+
+    // Step 1: Find the last digit
+    int lastDigit = n % 10;
+
+    // Step 2: Find the number of digits and the first digit
+    long long temp = n;
+    long long divisor = 1;
+    
+    while (temp >= 10) {
+        temp /= 10;
+        divisor *= 10;
+    }
+    int firstDigit = temp; // temp now holds the first digit
+
+    // Step 3: Extract the middle part of the number
+    // Middle part = (Number without first digit) without last digit
+    long long middlePart = (n % divisor) / 10;
+
+    // Step 4: Reconstruct the swapped number
+    long long swappedNum = (lastDigit * divisor) + (middlePart * 10) + firstDigit;
+
+    // Restore sign if negative
+    if (isNegative) {
+        swappedNum = -swappedNum;
+    }
+
+    cout << "Swapped number: " << swappedNum << endl;
+
+    return 0;
+}
