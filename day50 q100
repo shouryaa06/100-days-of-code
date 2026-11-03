@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+int main()
+{
+void print_all_substrings(const char str[]) {
+    
+    int length = 0;
+    
+    // 1. Calculate the length of the string
+    while (str[length] != '\0') {
+        length++;
+    }
+    
+    printf("Sub-strings:\n");
+    
+    // 2. Outer loop for the starting point
+    for (int i = 0; i < length; i++) {
+        // 3. Inner loop for the ending point
+        for (int j = i; j < length; j++) {
+            // 4. Print the sub-string from index i to j
+            for (int k = i; k <= j; k++) {
+                printf("%c", str[k]);
+            }
+            printf("\n");
+        }
+    }
+}
+
+    
+return 0;
+}
+}
