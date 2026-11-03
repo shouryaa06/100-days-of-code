@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <ctype.h>
+
+/**
+ * Extracts and prints the uppercase initials of a given name.
+ * 
+ * @param name The null-terminated input string containing the full name.
+ */
+void print_initials(const char name[]) {
+    int i = 0;
+    int is_new_word = 1; // Flag to track if the current character starts a new word
+
+    while (name[i] != '\0') {
+        // If we hit a space, the next non-space character will be a new word
+        if (name[i] == ' ' || name[i] == '\t' || name[i] == '\n') {
+            is_new_word = 1;
+        } 
+        // If it's an alphabetic character and the start of a new word
+        else if (is_new_word && isalpha((unsigned char)name[i])) {
+            printf("%c.", toupper((unsigned char)name[i]));
+            is_new_word = 0; // Turn off flag until we encounter another space
+        } 
+        else {
+            is_new_word = 0; // Still inside the same word
+        }
+        i++;
+    }
+    printf("\n");
+}
+
