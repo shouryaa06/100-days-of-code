@@ -1,0 +1,22 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int totalRows = 5;
+
+    // Outer loop for the rows
+    for (int i = 1; i <= totalRows; ++i) {
+        // Calculate the starting number for the current row
+        int startValue = totalRows - i + 1;
+        
+        // Inner loop prints from startValue up to 5
+        for (int j = startValue; j <= totalRows; ++j) {
+            cout << j;
+        }
+        // Move to the next line after completing the row
+        cout << endl;
+    }
+
+    return 0;
+}
