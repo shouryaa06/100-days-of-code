@@ -1,0 +1,42 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Enter the number of elements: ";
+    if (!(cin >> n) || n <= 0) {
+        cout << "Please enter a valid positive integer." << endl;
+        return 1;
+    }
+
+    int arr[n];
+    int positiveCount = 0;
+    int negativeCount = 0;
+    int zeroCount = 0;
+
+    cout << "Enter " << n << " elements:" << endl;
+    for (int i = 0; i < n; ++i) {
+        if (!(cin >> arr[i])) {
+            cout << "Invalid input. Exiting." << endl;
+            return 1;
+        }
+
+        // Classify the current element
+        if (arr[i] > 0) {
+            positiveCount++;
+        } else if (arr[i] < 0) {
+            negativeCount++;
+        } else {
+            zeroCount++;
+        }
+    }
+
+    // Output the results
+    cout << "\nTotal positive numbers: " << positiveCount << endl;
+    cout << "Total negative numbers: " << negativeCount << endl;
+    cout << "Total zero elements: " << zeroCount << endl;
+
+    return 0;
+}
+
