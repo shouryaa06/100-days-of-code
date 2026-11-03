@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <stdbool.h>
+
+int main() {
+    int num;
+    bool isPrime = true;
+
+    // Prompt user for input
+    printf("Enter an integer: ");
+    if (scanf("%d", &num) != 1) {
+        printf("Invalid input.\n");
+        return 1;
+    }
+
+    // Numbers less than or equal to 1 are not prime
+    if (num <= 1) {
+        isPrime = false;
+    } 
+    // 2 is the only even prime number
+    else if (num == 2) {
+        isPrime = true;
+    } 
+    // Exclude all other even numbers quickly
+    else if (num % 2 == 0) {
+        isPrime = false;
+    } 
+    else {
+        // Step through odd numbers up to the square root of num
+        // i * i <= num is mathematically equivalent to i <= sqrt(num)
+        for (int i = 3; i * i <= num; i += 2) {
+            if (num % i == 0) {
+                isPrime = false;
+                break; // Exit loop immediately if a factor is found
+            }
+        }
+    }
+
+    // Print the result
+    if (isPrime) {
+        printf("%d is a PRIME number.\n", num);
+    } else {
+        printf("%d is NOT a prime number.\n", num);
+    }
+
+    return 0;
+}
