@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+int main()
+{
+    int i=3;
+    // int *p=&i; //storing the address of i at the pointer pointer
+    printf("value of i=%d\n",i);
+    printf("value of p=%p\n",p);
+    printf("value of *p=%d\n",*p);
+    printf("address using &(*p)=%p\n",(void*)&(*p));
+
+    return 0;
+}
