@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int main()
+{
+   int *pnum;
+   char *pch;
+   float *pfnum;
+   double *pdnum;
+   long *plnum;
+   printf("\n size of integer pointer=%zu",sizeof(pnum));
+   printf("\nsize of integer pointer=%zu",sizeof(pfnum));
+    printf("\nsize of integer pointer=%zu",sizeof(pdnum));
+ printf("\nsize of integer pointer=%zu",sizeof(plnum));
+  printf("\nsize of character pointer=%zu",sizeof(pch));
+  int num;
+  char ch;
+  float fnum;
+  double dnum;
+  long lnum;
+  printf("sixe of int=%zu bytes,s\n",sizeof(num));
+   printf("sixe of float=%zu bytes,s\n",sizeof(fnum));
+    printf("sixe of double=%zu bytes,s\n",sizeof(dnum));
+     printf("sixe of long=%zu bytes,s\n",sizeof(lnum));
+      printf("sixe of char=%zu bytes,s\n",sizeof(ch));
+    return 0;
+}
